@@ -123,11 +123,13 @@
     async function displayMainMenu(){
         const itemElement = document.createElement('div');
         try{
-            const menuItems = document.getElementById('menu-items');
+        const menu = await getMenu()
+        const menuItems = document.getElementById('menu-container');
         menuItems.innerHTML = ''; // Clear existing content
   
         menuData.forEach(menuItem => {
-          itemElement.classList.add('menu-item');
+
+          itemElement.classList.add('menu-container');
   
           // Create elements
           const itemName = document.createElement('h1');
@@ -152,9 +154,41 @@
     }
         await displayMainMenu() // Call the function to fetch and display menu items
     /////////////////////////////      EVENTS        //////////////////////////////
+    function toggleInfo(eventId) {
+        const eventDetails = document.getElementById(eventId)
+        eventDetails.classList.toggle('hidden')
+    }
     
+    async function displayEvents() {
+        const container = document.getElementById('events-container')
+    
+        try {
+            const eventsData = await getEvents()
+            eventsData.sort((a, b) => new Date(a.dates) - new Date(b.dates))
 
+            eventsData.forEach((event, index) => {
+                const eventCard = document.createElement('div')
+                const details = document.createElement('div')
 
+                eventCard.classList.add('event')
+                eventCard.innerHTML = `<h3>${event.name}</h3>`
+                eventCard.addEventListener('click', () => toggleInfo(`event${index}`))
+    
+                details.classList.add('event-details', 'hidden')
+                details.id = `event${index}`
+                details.innerHTML = `
+                    <p><strong>Location:</strong> ${event.location}</p>
+                    <p><strong>Date:</strong> ${event.dates}</p>
+                    <p><strong>Hours:</strong> ${event.hours}</p>
+                `
+                container.appendChild(eventCard)
+                container.appendChild(details)
+            })
+        } catch (error) {
+            console.error('Error fetching events:', error)
+        }
+    }
+    await displayEvents()
 
     /////////////////////////////      ADMIN PAGE FUNCTIONALITY        //////////////////////////////
   
@@ -215,17 +249,94 @@
             console.error('Error fetching menu items:', error)
         }
     }
-    
     await displayAdminMenu()
-
     /////////////////////////////      EVENTS        //////////////////////////////
+async function displayAdminEvents() {
+    try {
+        const events = await getEvents()
+        const eventBody = document.querySelector('#event-table tbody')
+        const row = document.createElement('tr')
 
+        events.sort((a, b) => new Date(a.dates) - new Date(b.dates))
+        events.forEach(event => {
+            const updateButton = row.querySelector(`#update-button-${event._id}`)
+            const deleteButton = row.querySelector(`#delete-button-${event._id}`)
+            const addButton = row.querySelector('#add_button')
+            row.innerHTML = `
+                <td><input type="text" value="${event.name}"></td>
+                <td><input type="text" value="${event.location}"></td>
+                <td><input type="text" value="${event.dates}"></td>
+                <td><input type="text" value="${event.hours}"></td>
+                <td>
+                    <button id="update-button-${event._id}">Update</button>
+                    <button id="delete-button-${event._id}">Delete</button>
+                </td>
+            `
+            eventBody.appendChild(row)
 
+            updateButton.addEventListener('click', async () => {
+                const updateName = row.querySelector('td:nth-child(1) input').value
+                const updateLocation = row.querySelector('td:nth-child(2) input').value
+                const updateDate = row.querySelector('td:nth-child(3) input').value
+                const updateHours = row.querySelector('td:nth-child(4) input').value
 
+                const updatedEventData = {
+                    name: updateName,
+                    location: updateLocation,
+                    dates: updateDate,
+                    hours: updateHours
+                }
 
+                await updateEvent(event._id, updatedEventData)
+                window.location.reload()
+            })
+
+            deleteButton.addEventListener('click', async () => {
+                await deleteEvent(event._id)
+                window.location.reload()
+            })
+        })
+
+        row.innerHTML = `
+            <td><input type="text" id="new-event-name"></td>
+            <td><input type="text" id="new-event-location"></td>
+            <td><input type="date" id="new-event-date"></td>
+            <td><input type="text" id="new-event-hours"></td>
+            <td>
+                <button id="add_button">Add</button>
+            </td>
+        `
+        eventBody.appendChild(row)
+        addButton.addEventListener('click', handleAddEvent)
+
+    } catch (error) {
+        console.error('Error fetching events:', error)
+    }
+}
+await displayAdminEvents()
 
     /////////////////////////////      DYNAMIC SITE BEHAVIOR (optional)       //////////////////////////////
 
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header')
+        const nav = document.querySelector('nav')
 
+        if (window.scrollY > header.offsetHeight - 100) {
+            nav.style.position = 'fixed'
+            nav.style.top = '0'
+            nav.style.width = '90%'
+            nav.style.transition = 'margin-top 0.3s ease'
+            nav.style.margin = '0 5%'
+            nav.style.marginTop = '20px'
+            header.style.marginBottom = `${nav.offsetHeight}px`
+        } else {
+            nav.style.width = '100%'
+            nav.style.position = 'static'
+            nav.style.transition = 'margin-top 0.3s ease'
+            header.style.marginBottom = '0'
+            nav.style.margin = '0'
+            nav.style.marginRight = '20px'
+        }
+    })
 
 })()
