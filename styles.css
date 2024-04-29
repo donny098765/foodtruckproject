@@ -1,0 +1,241 @@
+#black-background {
+    background-color: black;
+    color: white;;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 3em;
+    font-size: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.5s ease;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+}
+
+li {
+    list-style-type: none;
+    font-family: sans-serif;
+    font-weight:900;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.food-truck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.food-truck > h1 {
+    font-size: 70px;
+    margin-top: -9em
+}
+
+#food-homepage {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 25em;
+    margin-left: -100px;
+    height: 14em;
+}
+
+#food-homepage > div {
+    width: 30px;
+    text-align: center;
+    margin: 100px;
+    margin-top: 0em;
+    margin-left: -30px;
+}
+
+#food-homepage div:nth-child(1) img {
+    height: 250px;
+    width: 350px;
+    margin: -30px 30px 0 -35px;
+}
+
+#food-homepage div:nth-child(3) img {
+    margin-left: 45px;
+}
+
+.home-section {
+    font-weight: 600;
+    font-size: 18px;
+    width: 50%;
+    line-height: 30px;
+    margin: 0 auto;
+    /*
+    margin-top: em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/taco2.jpg); linear gradient makes the img dimmer
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: 70% 10em;
+    background-position: center;
+    padding: 40px;
+    color: white;
+    line-height: 2em;
+    font-size: large;
+    font-weight: bold;*/
+}
+
+@keyframes drive {
+    0% {
+        transform: translateX(100vw) rotateY(150deg); /*this flips the image to face right from left.*/
+    }
+    100% {
+        transform: translateX(-100vw) rotateY(150deg);
+    }
+}
+
+article div img {
+    transform: rotateY(150deg);
+}
+
+.animation {
+    animation: drive 6s linear infinite;
+    animation-direction: reverse;
+    animation-delay: -2s;
+}
+
+#info {
+    display: none; /* Initially hide the text box */
+    color: white;
+    font-weight: bold;
+    background-color: purple;
+    border: 1px solid #000; /* Border */
+    padding: 10px; /* Padding */
+    margin-top: 10px; /* Space above the text box */
+}
+
+#gradientbackground-home {
+    background-image: linear-gradient(to right, #653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+}
+
+#gradientbackground-admin {
+    background-image: linear-gradient(to bottom, #653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+}
+
+#gradient-background {
+    background-image: linear-gradient(#653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+}
+
+.menu-heading {
+    font-weight: 900;
+    font-size: 70px;
+}
+
+#menu-body {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+section {
+    text-align: center;
+}
+
+span {
+    font-family: "caveat", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/*contact page styles*/
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 420px;
+}
+
+/*admin page styles*/
+#admin-sections > section:first-of-type {
+    background-color: #ffb350;
+    width: 100%;
+    height: 150px;
+    border: 2px solid black;
+}
+
+#admin-sections > section:nth-of-type(2) {
+    background-color: #8bb270;
+    width: 100%;
+    height: 150px;
+    border: 2px solid black;
+}
+
+#admin-sections > section:nth-of-type(3) {
+    background-color: #662b75;
+    width: 100%;
+    height: 150px;
+    border: 2px solid black;
+}
+
+#admin-sections > section:nth-of-type(4) {
+    background-color: #037c91;
+    width: 100%;
+    height: 150px;
+    border: 2px solid black;
+}
+
+#admin-sections > section:nth-of-type(5) {
+    background-color: #d6658d;
+    width: 100%;
+    height: 150px;
+    border: 2px solid black;
+}
+
+#admin-sections > section:nth-of-type(6) {
+    background-color: #b87e5d;
+    width: 100%;
+    height: 170px;
+    border: 2px solid black;
+}
+
+#admin-sections {
+    margin: 0 auto; /* Centers the sections on the page */
+    width: 30%; /*helps centers the sections*/
+}
+
+#admin-sections h2 {
+    padding: 12px 0;
+    font-size: 17px;
+    width: 200px;
+    margin-left: 6em;
+    margin-top: 32px;
+}
+
+#admin-sections > section { 
+    margin: 20px; /* Space between sections */
+}
+
+#admin-sections > section > img {
+    margin-left: 22em;
+    margin-top: -12px;
+}
+
