@@ -6,6 +6,9 @@
     <title>DJA Food Truck</title>
     <script src="https://kit.fontawesome.com/d18ff80d2a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
 </head>
 <body id="gradientbackground-home">
     <header>
@@ -19,9 +22,8 @@
         </nav>
         <div class="food-truck">
             <img src="img/foodtruck.jpg" alt="food truck" width="1463px" height="750px">
-            <h1>DJA's Food Truck</h1>
-            <h2 style="width: 30%; text-align: center;">"Crave the Flavor, Savor the DJA's Vibe!<br>
-                <br>"Delicious Journeys on the Avenue</h2>
+            <h1>DJA'S FOOD TRUCK</h1>
+            <h2>Crave the Flavor, Savor the DJA's Vibe!</h2>
         </div>
     </header>
     <div id="food-homepage">
@@ -31,8 +33,8 @@
         <div><img src="img/koreanburger.png" alt="koreanburger" width="300px" height="200px"></div>
         <div><img src="img/fishtacos.png" alt="fishtacos" width="300px" height="200px"></div>
     </div>
-    <main>
-        <section class="home-section">
+    <main id="home-section">
+        <section>
             Welcome to DJA Food Truck, where we specialize in crafting mouthwatering burgers, flavorful tacos, and delicious sides that elevate your street
             food experience. Our vision is to deliver savory satisfaction on every plate and create moments of culinary delight that you'll remember long 
             after the last bite. Dive into our gourmet burgers, made with premium ingredients and served with a side of crispy, golden fries that are 
@@ -41,15 +43,30 @@
             DJA Food Truck, we're not just about serving food; we're about curating an unforgettable dining adventure that brings people together over
             the love of great food. Join us and savor the flavor at every stop! 
         </section>
+        <hr><br>
+        <section>
+            <img src="img/guy.png" alt="guy" width="500px" height="400px">
+        </section>
+        <span>
+            "Flavor town has a new stop @ Appleton WI, and it's DJA's Food Truck! This place is on fire with sizzling burgers, taco twists, and fries that'll make you wanna shout 'Flavortastic!' 
+            Don't just take my word for it, come taste the awesomeness at DJA's!" <br>- Guy Fieri / Los Angles, CA
+        </span>
+        <section>
+            <img src="img/sonny.jpeg" alt="sonny" width="500px" height="400px">
+        </section>
+        <span>
+            "Sonny from the Best Food Review Show here, and let me tell ya, DJA's Food Truck is the real deal! We're talking flavor explosions that'll have your taste buds doing backflips. From mouthwatering burgers to taco creations that'll make you say 'Holy Guacamole!' And those fries? Crispy perfection! DJA's Food Truck is a must-stop for foodies everywhere. You don't wanna miss this food truck magic!"
+        </span>
+        <hr style="clear:both; display: block;">
+        <article style="color: white; clear: both;"><br>
+            <h3>CLICK ON OUR FOOD TRUCK TO FIND US!</h3>
+            <div>
+                <img src="img//truck.png" alt="food-truck moving" width="200px" height="200px" onclick="handleClick()"> <!--this flips the truck from facing left to right-->
+            </div>
+            <audio id="honk-sound" src="audio/mexican-taco-truck-horn-made-with-Voicemod.mp3" preload="auto"></audio>
+            <audio src="img/truck.png" alt="food-truck moving" width="200px" height="200px">
+        </article>
     </main>
-    <article style="color: white;">
-        <h3>CLICK ON OUR FOOD TRUCK TO FIND US!</h3>
-        <div>
-            <img src="img//truck.png" alt="food-truck moving" width="200px" height="200px" onclick="handleClick()"> <!--this flips the truck from facing left to right-->
-        </div>
-        <audio id="honk-sound" src="audio/mexican-taco-truck-horn-made-with-Voicemod.mp3" preload="auto"></audio>
-        <audio src="img/truck.png" alt="food-truck moving" width="200px" height="200px">
-    </article>
     <div id="info"></div>
     <script>
         function handleClick() {

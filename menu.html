@@ -6,11 +6,14 @@
     <title>DJA Food Truck</title>
     <script src="https://kit.fontawesome.com/d18ff80d2a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@700&family=Pixelify+Sans&display=swap" rel="stylesheet">
 </head>
-<body id="gradient-background">
+<body id="gradientbackground-menu">
     <header>
         <nav>
             <ul>
@@ -21,11 +24,12 @@
             </ul>
         </nav>
     </header>
-    <div style="position: relative;">
-        <img src="img/foodtruck.jpg" alt="food truck" width="100%" height="750px" style="display: block;">
-        <h1 class="menu-heading" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">DJA'S FOODTRUCK</h1>
+    <div class="food-truck">
+        <img src="img/foodtruck.jpg" alt="food truck" width="1463px" height="750px" style="display: block;">
+        <h1>DJA'S FOOD TRUCK</h1>
+        <h2 style="letter-spacing: 5px;">MENU</h2>
     </div>
-    <main>
+    <main id="menu-section">
         <div id="menu-body">
         <section>
                 <ul>
@@ -52,7 +56,8 @@
                 </ul>
             </div>
         </section>
-        <section>
+        <hr>
+        <section class="menu-fries">
             <div>
                 <ul>
                     <li>Truffle Parmesan Fries $4.50</li>

@@ -1,6 +1,7 @@
+/* general styles */
 #black-background {
     background-color: black;
-    color: white;;
+    color: white;
 }
 
 nav ul {
@@ -38,6 +39,31 @@ li {
     font-family: 'Courier New', Courier, monospace;
 }
 
+h1 {
+    font-family: 'Calligraffitti', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 30%; 
+    text-align: center;
+    z-index: 3;
+}
+
+
+/*HOME PAGE STYLES*/
+
+#gradientbackground-home {
+    background-image: linear-gradient(to right, #653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+}
+
 .food-truck {
     display: flex;
     justify-content: center;
@@ -45,9 +71,14 @@ li {
     flex-direction: column;
 } 
 
+.food-truck img{
+    filter: brightness(0.7);
+}
+
 .food-truck > h1 {
     font-size: 70px;
-    margin-top: -9em
+    margin-top: -8em;
+    z-index: 3;
 }
 
 #food-homepage {
@@ -55,7 +86,7 @@ li {
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 25em;
+    margin-top: 6em;
     margin-left: -100px;
     height: 14em;
 }
@@ -69,7 +100,7 @@ li {
 }
 
 #food-homepage div:nth-child(1) img {
-    height: 250px;
+    height: 240px;
     width: 350px;
     margin: -30px 30px 0 -35px;
 }
@@ -78,23 +109,58 @@ li {
     margin-left: 45px;
 }
 
-.home-section {
-    font-weight: 600;
+#home-section section:first-of-type {
+    font-weight: normal;
     font-size: 18px;
-    width: 50%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 60%;
     line-height: 30px;
     margin: 0 auto;
-    /*
-    margin-top: em;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/taco2.jpg); linear gradient makes the img dimmer
-    background-color: rgba(255, 255, 255, 0.5);
-    background-size: 70% 10em;
-    background-position: center;
-    padding: 40px;
-    color: white;
-    line-height: 2em;
-    font-size: large;
-    font-weight: bold;*/
+    padding-bottom: 0.5em;
+}
+
+#home-section section:nth-of-type(2) {
+    padding-left: 1em;
+}
+
+#home-section section:nth-of-type(2) img {
+    border: 7px solid #fefbf0;
+    float: left;
+}
+
+#home-section span:nth-of-type(1) {
+    display: inline-block;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5em;
+    width: 40%;
+    height: 150px;
+    text-align: center;
+    margin-top: 9em;
+    padding-left: 5em;
+    padding-bottom: 12em;
+}
+
+#home-section section:nth-of-type(3) {
+    padding-right: 1em;
+}
+
+#home-section section:nth-of-type(3) img {
+    border: 7px solid #fefbf0;
+    float: right;
+}
+
+#home-section span:nth-of-type(2) {
+    display: inline-block;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5em;
+    width: 40%;
+    height: 150px;
+    text-align: center;
+    margin-top: 9em;
+    padding-left: 6em;
+    padding-bottom: 8em;
 }
 
 @keyframes drive {
@@ -120,25 +186,15 @@ article div img {
     display: none; /* Initially hide the text box */
     color: white;
     font-weight: bold;
-    background-color: purple;
+    background-color: #c2c2c2;
     border: 1px solid #000; /* Border */
     padding: 10px; /* Padding */
     margin-top: 10px; /* Space above the text box */
 }
 
-#gradientbackground-home {
-    background-image: linear-gradient(to right, #653180, #eb6347, #009ab8);
-    height: 1000px;
-    color: white;
-}
+/*MENU PAGE STYLES */
 
-#gradientbackground-admin {
-    background-image: linear-gradient(to bottom, #653180, #eb6347, #009ab8);
-    height: 1000px;
-    color: white;
-}
-
-#gradient-background {
+#gradientbackground-menu {
     background-image: linear-gradient(#653180, #eb6347, #009ab8);
     height: 1000px;
     color: white;
@@ -147,12 +203,26 @@ article div img {
 .menu-heading {
     font-weight: 900;
     font-size: 70px;
+    margin-top: -8em;
+    border: 1px solid red;
 }
 
 #menu-body {
     display: flex;
     justify-content: space-between;
-    margin-right: 50px;
+    margin: 0 auto;
+    margin-top: 18em;
+    margin-right: 6em;
+}
+
+#menu-body > section{
+    margin-left: 5em;
+    width: 40%;
+}
+
+.menu-fries{
+    width: 40%;
+    margin: 0 auto;
 }
 
 section {
@@ -165,16 +235,33 @@ span {
     font-weight: 900;
 }
 
-/*contact page styles*/
-table, th, td {
-    border: 1px solid black;
-    padding: 5px;
-    border-collapse: collapse;
-    text-align: center;
-    margin-left: 420px;
+hr {
+    width: 80%;
+    color: #fefbf0;
 }
 
-/*admin page styles*/
+/*ADMIN PAGE STYLES*/
+
+#gradientbackground-admin {
+    background-image: linear-gradient(to bottom, #653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+}
+
+#admin-sections {
+    margin: 0 auto; /* Centers the sections on the page */
+    margin-top: 20em;
+    width: 30%; /*helps centers the sections*/
+}
+
+#admin-sections h2 {
+    padding: 15px 0;
+    font-size: 17px;
+    width: 200px;
+    margin-left: 5em;
+    margin-top: 27px;
+}
+
 #admin-sections > section:first-of-type {
     background-color: #ffb350;
     width: 100%;
@@ -217,25 +304,45 @@ table, th, td {
     border: 2px solid black;
 }
 
-#admin-sections {
-    margin: 0 auto; /* Centers the sections on the page */
-    width: 30%; /*helps centers the sections*/
-}
-
-#admin-sections h2 {
-    padding: 12px 0;
-    font-size: 17px;
-    width: 200px;
-    margin-left: 6em;
-    margin-top: 32px;
-}
-
 #admin-sections > section { 
     margin: 20px; /* Space between sections */
 }
 
 #admin-sections > section > img {
-    margin-left: 22em;
-    margin-top: -12px;
+    margin-left: 17em;
+    margin-top: -56px;
+    filter: opacity(50%);
+    width: 100px;
+    height: 90px;
+}
+
+/*CONTACT PAGE STYLES*/
+
+#gradientbackground-contact {
+    background-image: linear-gradient(#653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 420px;
+}
+
+.contact-imgs > img {
+    border: 2px solid white;
+}
+.contact-imgs > img:nth-of-type(2) {
+    width: 210px;
+    height: 150px;
+}
+
+.contact-message {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center; 
+    width: 60%; /* Width of the message */
+    margin: 0 auto; /* Centers the message on the page */
 }
 
