@@ -6,6 +6,26 @@
 
     /////////////////////////////      MENU        //////////////////////////////
 
+    const handleAddMenuItem = async () => {
+        const newName = document.getElementById('new-item-name').value
+        const newDescription = document.getElementById('new-item-description').value
+        const newPrice = document.getElementById('new-item-price').value
+    
+        const menuItemData = {
+            name: newName,
+            description: newDescription,
+            price: newPrice
+        }
+    
+        try {
+            await addMenuItem(menuItemData)
+            window.location.reload()
+            
+        } catch (error) {
+            console.error('Error adding menu item:', error)
+        }
+    }
+
     // Fetches menu items from the database
     const getMenu = async () => {
         const menu = await fetch('/api/v1/menu')
@@ -61,6 +81,28 @@
     }
 
     /////////////////////////////      EVENTS        //////////////////////////////
+
+    const handleAddEvent = async () => {
+        const newName = document.getElementById('new-event-name').value
+        const newLocation = document.getElementById('new-event-location').value
+        const newDate = document.getElementById('new-event-date').value
+        const newHours = document.getElementById('new-event-hours').value
+    
+        const eventData = {
+            name: newName,
+            location: newLocation,
+            dates: newDate,
+            hours: newHours
+        }
+    
+        try {
+            await addEvent(eventData)
+            window.location.reload()
+
+        } catch (error) {
+            console.error('Error adding event:', error)
+        }
+    }
 
     // Adds an event to the database
     const addEvent = async (eventData) => {
