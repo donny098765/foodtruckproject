@@ -166,7 +166,9 @@
         try {
             const menu = await getMenu()
             const container = document.getElementById('menu-container')
-    
+            
+            container.innerHTML = ""
+            
             menu.forEach(item => {
                 // Create a div to hold each menu item
                 const menuItemCard = document.createElement('div')
