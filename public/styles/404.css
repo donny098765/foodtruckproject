@@ -1,0 +1,49 @@
+/* 404.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: blueviolet;
+}
+
+span {
+    background-color: rgb(114, 169, 231);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: black 1px solid;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error h1 {
+    font-size: 100px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.error span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error p {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+.error a {
+    color: #c300ff;
+    text-decoration: none;
+}
+
+.error a:hover {
+    text-decoration: underline;
+}

@@ -312,6 +312,7 @@
     }
     
     await displayAdminMenu()
+    
     /////////////////////////////      EVENTS        //////////////////////////////
     const displayAdminEvents = async () => {
         try {
@@ -395,7 +396,7 @@
         const header = document.querySelector('header')
         const nav = document.querySelector('nav')
 
-        if (window.scrollY > header.offsetHeight - 100) {
+        if (window.scrollY > header.offsetHeight - 300) {
             nav.style.position = 'fixed'
             nav.style.top = '0'
             nav.style.width = '90%'
