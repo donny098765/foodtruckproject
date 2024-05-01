@@ -1,0 +1,209 @@
+/*HOME PAGE STYLES*/
+header {
+    position: relative; /* Add position relative to create stacking context */
+    z-index: 1; /* Set a lower z-index for the header */
+}
+
+#gradientbackground-home {
+    background-image: linear-gradient(to right, #653180, #d047eb, #009ab8);
+    height: 1000px;
+    color: white;
+    height: 100%;
+}
+
+.food-truck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.food-truck img{
+    filter: brightness(0.7);
+    display: block;
+    position: relative;
+}
+
+.food-truck > h1 {
+    font-size: 70px;
+    margin-top: -8em;
+    z-index: 3;
+}
+
+#food-homepage {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 6em;
+    margin-left: -100px;
+    height: 14em;
+}
+
+#food-homepage > div {
+    width: 30px;
+    text-align: center;
+    margin: 100px;
+    margin-top: 0em;
+    margin-left: -30px;
+}
+
+#food-homepage div:nth-child(1) img {
+    height: 240px;
+    width: 350px;
+    margin: -30px 30px 0 -35px;
+}
+
+#food-homepage div:nth-child(3) img {
+    margin-left: 45px;
+}
+
+#home-section section:first-of-type {
+    font-weight: normal;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 60%;
+    line-height: 30px;
+    margin: 0 auto;
+    padding-bottom: 0.5em;
+}
+
+#home-section section:nth-of-type(2) {
+    padding-left: 1em;
+}
+
+#home-section section:nth-of-type(2) img {
+    border: 7px solid #fefbf0;
+    float: left;
+}
+
+#home-section span:nth-of-type(1) {
+    display: inline-block;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5em;
+    width: 40%;
+    height: 150px;
+    text-align: center;
+    margin-top: 9em;
+    padding-left: 5em;
+    padding-bottom: 12em;
+}
+
+#home-section section:nth-of-type(3) {
+    padding-right: 1em;
+}
+
+#home-section section:nth-of-type(3) img {
+    border: 7px solid #fefbf0;
+    float: right;
+}
+
+#home-section span:nth-of-type(2) {
+    display: inline-block;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5em;
+    width: 40%;
+    height: 150px;
+    text-align: center;
+    margin-top: 9em;
+    padding-left: 6em;
+    padding-bottom: 8em;
+}
+
+@keyframes drive {
+    0% {
+        transform: translateX(100vw) rotateY(150deg);
+    }
+    100% {
+        transform: translateX(-100vw) rotateY(150deg);
+    }
+}
+
+article div img {
+    transform: rotateY(150deg);
+}
+
+.animation {
+    animation: drive 6s linear infinite;
+    animation-direction: reverse;
+    animation-delay: -2s;
+}
+
+#info {
+    display: none;
+    color: white;
+    font-weight: bold;
+    background-color: #c2c2c2;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.event {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #702500;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #780091;
+    opacity: 0;
+    animation: fadeIn 0.7s forwards;
+    transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.event:hover {
+    background-color: #4091d7;
+    color: white;
+    font-size: 1.1em;
+}
+
+.event-details {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #b950d3;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    color: black;
+    opacity: 0;
+    animation: slideIn 0.7s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: .25;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.event-details p {
+    margin: 5px;
+    text-align: center;
+}
+
+.event-details p strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.event-details.hidden {
+    max-height: 500px;
+    display: none;
+}

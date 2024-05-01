@@ -1,0 +1,86 @@
+/*CONTACT PAGE STYLES*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#gradientbackground-contact {
+    background-image: linear-gradient(#653180, #eb6347, #009ab8);
+    height: 1000px;
+    color: white;
+    height: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.contact-imgs > img {
+    border: 2px solid white;
+    display: inline;
+    justify-content: center;
+}
+
+.contact-message {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center; 
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Contact container */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f963;
+}
+
+.container h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.container p {
+    margin-bottom: 10px;
+}
+
+.container form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.container form input[type="text"],
+.container form input[type="email"],
+.container form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container form button {
+    background-color: #70006b;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    width: 93%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container form button:hover {
+    background-color: #4091d7;
+}

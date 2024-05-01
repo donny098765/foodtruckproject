@@ -6,99 +6,112 @@
         <title>DJA Food Truck</title>
         <script src="https://kit.fontawesome.com/d18ff80d2a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="styles/contact.css">
+
     </head>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="admin.html">Admin</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            </nav>
-            <h1 style="text-align: center;"><br><strong>Contact Us</strong></h1>
-            <section class="contact-imgs">
-            <img src="img/don.png" alt="dons-pic" width="150" height="150">
-            <img src="img/ana-removebg-preview.png" alt="annas-pic">
-            <img src="img/justin.png" alt="justin-pic" width="170" height="150">
-            </section>
-            <p class="contact-message"><br>
-                To all of our valued customers, thank you for choosing DJA Food Truck! Your support means the world to us. We're here to make your foodtruck experience exceptional. Whether you're craving our juicy 
-                burgers, flavorful tacos, or indulgent fries, we promise to deliver deliciousness with every bite. Have questions, feedback, or just want to say hello? Drop us a message below, and we'll 
-                get back to you as soon as possible. Your satisfaction is our priority, and we can't wait to hear from you. Happy eating!<br> <br>Sincerely, The DJA Food Truck Team.
-            </p><br>
-        </header>
-        <body id="gradientbackground-contact">
-            <section>
-                <section>
-                    <form methods="post" actions="feedback.php">
-                            <fieldset>
-                                <legend>INQUIRIES</legend>
-                            <p>
-                                <label for="Date">Todays Date</label>
-                                <input type="date" id="date" name="date">
-                            </p>
-                            <p><label for="fname">First Name (required): </label>
-                                <input type="text" id="fname" name="fname">
-                            </p>
-                            <p><label for="lname">Last Name (required): </label>
-                                <input type="text" id="lname" name="lname"></p>
-                            <p><label for="street">Email (required):</label>
-                                <input type="text" id="address"name="address"></p>
-                            <p>
-                                <label for="phone#">Message:</label>
-                                <input type="number" id="phone#" name="phone#">
-                            </p>
-                            </fieldset>
-                            <fieldset>
-                            <legend style="padding-top: 15px;">QUESTIONAIRE</legend>
-                            <p>
-                                Best Means of Contact?
-                            </p>
-                            <p>
-                                <input type="radio" name="Contact" value="Email">
-                                <label for="brand">Email</label><br>
-                                <input type="radio" name="Contact" value="Txt Message">
-                                <label for="brand">Text Message</label><br>
-                                <input type="radio" name="Contact" value="Phone Call">
-                                <label for="brand">Phone Call</label><br>
-                                <input type="radio" name="Contact" value="Mail">
-                                <label for="brand">Mail</label>
-                            </p>
-                            <p>
-                                How Did You Hear About Us?
-                            </p>
-                            <p>
-                                <input type="checkbox" name="source" value="Facebook">
-                                <label for="stores">Meta</label><br>
-                                <input type="checkbox" name="source" value="instagram">
-                                <label for="stores">Instagram</label><br>
-                                <input type="checkbox" name="source" value="yelp">
-                                <label for="stores">X</label><br>
-                                <input type="checkbox" name="source" value="mongul">
-                                <label for="stores">TikTok</label><br>
-                                <br><label for="sources">Other</label>
-                                <input type="text" id="sources" name="sources">
-                            </p>
-                            <p>
-                                <button>Submit</button>
-                            </p>
-                            </fieldset>
-                    </form>
-                </section>
-            </section>
-            <br><footer>
-                <p><strong>
-                    Follow Us:
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-tiktok"></i>
-                    </strong>
-                </p>
-                <p><small>&copy; 2024 DJA Foodtruck</small></p>
-            </footer>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+        <h1 style="text-align: center;"><br><strong>Contact Us</strong></h1>
+    </header>
+
+    <section class="contact-imgs">
+        <img src="img/don.png" alt="dons-pic" width="200" height="200">
+        <img src="img/ana-removebg-preview.png" width="200" height="200" alt="annas-pic">
+        <img src="img/justin.png" alt="justin-pic" width="220" height="200">
+    </section>
+
+    <p class="contact-message"><br>
+        To all of our valued customers, thank you for choosing DJA Food Truck! Your support means the world to us. We're here to make your foodtruck experience exceptional. Whether you're craving our juicy 
+        burgers, flavorful tacos, or indulgent fries, we promise to deliver deliciousness with every bite. Have questions, feedback, or just want to say hello? Drop us a message below, and we'll 
+        get back to you as soon as possible. Your satisfaction is our priority, and we can't wait to hear from you. Happy eating!<br> <br>Sincerely, The DJA Food Truck Team.
+    </p>
+        
+    <br>
+
+    <body id="gradientbackground-contact">
+
+        <section class="container">
+            <form methods="post" actions="feedback.php">
+
+                <fieldset>
+                    <legend>INQUIRIES</legend>
+                        <p>
+                            <label for="Date">Todays Date</label>
+                            <input type="date" id="date" name="date">
+                        </p>
+                        <p><label for="fname">First Name (required): </label>
+                            <input type="text" id="fname" name="fname">
+                        </p>
+                        <p><label for="lname">Last Name (required): </label>
+                            <input type="text" id="lname" name="lname"></p>
+                        <p><label for="street">Email (required):</label>
+                            <input type="text" id="address"name="address"></p>
+                        <p>
+                            <label for="phone#">Message:</label>
+                            <input type="number" id="phone#" name="phone#">
+                        </p>
+                </fieldset>
+
+                <fieldset>
+                <legend style="padding-top: 15px;">QUESTIONAIRE</legend>
+                    <p>
+                        Best Means of Contact?
+                    </p>
+                    <p>
+                        <input type="radio" name="Contact" value="Email">
+                        <label for="brand">Email</label><br>
+                        <input type="radio" name="Contact" value="Txt Message">
+                        <label for="brand">Text Message</label><br>
+                        <input type="radio" name="Contact" value="Phone Call">
+                        <label for="brand">Phone Call</label><br>
+                        <input type="radio" name="Contact" value="Mail">
+                        <label for="brand">Mail</label>
+                    </p>
+                    <p>
+                        How Did You Hear About Us?
+                    </p>
+                    <p>
+                        <input type="checkbox" name="source" value="Facebook">
+                        <label for="stores">Meta</label><br>
+                        <input type="checkbox" name="source" value="instagram">
+                        <label for="stores">Instagram</label><br>
+                        <input type="checkbox" name="source" value="yelp">
+                        <label for="stores">X</label><br>
+                        <input type="checkbox" name="source" value="mongul">
+                        <label for="stores">TikTok</label><br>
+                        <br><label for="sources">Other</label>
+                        <input type="text" id="sources" name="sources">
+                    </p>
+                    <p>
+                        <button>Submit</button>
+                    </p>
+                </fieldset>
+
+            </form>
+        </section>
+
+        <br>
+        
+        <footer>
+            <p>
+                <strong>
+                Follow Us:
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                </strong>
+            </p>
+            <p><small>&copy; 2024 DJA Foodtruck</small></p>
+        </footer>
+
     </body>
-    </div>
 </html>

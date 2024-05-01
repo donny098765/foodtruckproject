@@ -6,12 +6,15 @@
     <title>DJA Food Truck</title>
     <script src="https://kit.fontawesome.com/d18ff80d2a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
-    <script src="scripts/" defer></script>
+    <script src="scripts/site.js" defer></script>
 </head>
+
 <body id="gradientbackground-admin">
+
     <header>
         <nav>
             <ul>
@@ -22,22 +25,53 @@
             </ul>
         </nav>
     </header>
+
     <div class="food-truck">
         <img src="img/foodtruck.jpg" alt="food truck" width="1463px" height="750px" style="display: block;">
         <h1>DJA'S FOOD TRUCK</h1>
         <h2>MASTER ADMIN</h2>
     </div>
-    <main id="admin-sections">
 
-        <section>
+    <main id="admin-sections">
+        <div class="container">
             <h2>MENU MANAGEMENT</h2>
             <img style="margin-top: -40px;" src="img/menu.png" alt="menu" width="50px" height="50px">
-        </section>
-        <section>
+            <table id="menu-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Menu items will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
             <h2>EVENTS MANAGEMENT</h2>
             <img style="margin-top: -36px;" src="img/public-service.png" alt="cs-management" width="50px" height="50px">
-        </section>
+            <table id="event-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Hours</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Events will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
     </main>
+
     <footer>
         <p><strong>
             Follow Us:
@@ -49,4 +83,5 @@
         </p>
         <p><small>&copy; 2024 DJA Foodtruck</small></p>
     </footer>
+    
  </body>

@@ -120,89 +120,94 @@
     /////////////////////////////      SITE FUNCTIONALITY        //////////////////////////////
 
     /////////////////////////////      MENU        //////////////////////////////
-    async function displayMainMenu(){
-        const itemElement = document.createElement('div');
-        try{
-        const menu = await getMenu()
-        const menuItems = document.getElementById('menu-container');
-        menuItems.innerHTML = ''; // Clear existing content
-  
-        menuData.forEach(menuItem => {
-
-          itemElement.classList.add('menu-container');
-  
-          // Create elements
-          const itemName = document.createElement('h1');
-          const itemDescription = document.createElement('p');
-          const itemPrice = document.createElement('span');
-
-          itemName.textContent = menuItem.name;
-          itemDescription.textContent = menuItem.description;
-          itemPrice.textContent = `$${menuItem.price}`;
-
-          // Add elements
-          itemElement.appendChild(itemName);
-          itemElement.appendChild(itemDescription);
-          itemElement.appendChild(itemPrice);
-  
-          menuItems.appendChild(itemElement);
-        })
+    const displayMenu = async () => {
+        try {
+            const menu = await getMenu()
+            const container = document.getElementById('menu-container')
+    
+            menu.forEach(item => {
+                // Create a div to hold each menu item
+                const menuItemCard = document.createElement('div')
+                menuItemCard.classList.add('menu-item-card')
+    
+                // Create elements for name, description, and price
+                const itemName = document.createElement('h1')
+                itemName.textContent = item.name
+    
+                const itemDescription = document.createElement('p')
+                itemDescription.textContent = item.description
+    
+                const itemPrice = document.createElement('p')
+                itemPrice.textContent = `Price: $${item.price}`
+    
+                // Append name, description, and price elements to the menu item card
+                menuItemCard.appendChild(itemName)
+                menuItemCard.appendChild(itemDescription)
+                menuItemCard.appendChild(itemPrice)
+    
+                // Append the menu item card to the container
+                container.appendChild(menuItemCard)
+            })
+        } catch (error) {
+            console.error('Error fetching menu items:', error)
+        }
     }
-    catch (error){
-        console.error('Error fetching menu items:', error) 
-    }
-    }
-        await displayMainMenu() // Call the function to fetch and display menu items
+
+    await displayMenu()
+
     /////////////////////////////      EVENTS        //////////////////////////////
-    function toggleInfo(eventId) {
+    // Toggles event details visibility, when clicked the card becomes visible
+    const toggleEventInfo = (eventId) => {
         const eventDetails = document.getElementById(eventId)
         eventDetails.classList.toggle('hidden')
     }
     
-    async function displayEvents() {
-        const container = document.getElementById('events-container')
+    // Displays events on the site (home page)
+    const displayEvents = async () => {
+        const eventsContainer = document.getElementById('events-container')
     
+        // Fetches events data and sorts by date
         try {
             const eventsData = await getEvents()
+    
             eventsData.sort((a, b) => new Date(a.dates) - new Date(b.dates))
 
             eventsData.forEach((event, index) => {
                 const eventCard = document.createElement('div')
-                const details = document.createElement('div')
-
                 eventCard.classList.add('event')
                 eventCard.innerHTML = `<h3>${event.name}</h3>`
-                eventCard.addEventListener('click', () => toggleInfo(`event${index}`))
+                eventCard.addEventListener('click', () => toggleEventInfo(`event${index}`))
     
-                details.classList.add('event-details', 'hidden')
-                details.id = `event${index}`
-                details.innerHTML = `
+                const eventDetails = document.createElement('div')
+                eventDetails.classList.add('event-details', 'hidden')
+                eventDetails.id = `event${index}`
+                eventDetails.innerHTML = `
                     <p><strong>Location:</strong> ${event.location}</p>
                     <p><strong>Date:</strong> ${event.dates}</p>
                     <p><strong>Hours:</strong> ${event.hours}</p>
                 `
-                container.appendChild(eventCard)
-                container.appendChild(details)
+    
+                eventsContainer.appendChild(eventCard)
+                eventsContainer.appendChild(eventDetails)
             })
         } catch (error) {
             console.error('Error fetching events:', error)
         }
     }
+    
     await displayEvents()
 
     /////////////////////////////      ADMIN PAGE FUNCTIONALITY        //////////////////////////////
   
     /////////////////////////////      MENU        //////////////////////////////
-    async function displayAdminMenu() {
-        const row = document.createElement('tr')
-        const addButton = row.querySelector('#add_button')
-        const deleteButton = row.querySelector(`#delete-button-${item._id}`)
-        const updateButton = row.querySelector(`#update-button-${item._id}`)
+    const displayAdminMenu = async () => {
         try {
             const menu = await getMenu()
-            const menuBody = document.querySelector('#menu tbody')
-            // Populates rows
+            const menuTableBody = document.querySelector('#menu-table tbody')
+    
+            // Populates rows with input fields containing menu item data
             menu.forEach(item => {
+                const row = document.createElement('tr')
                 row.innerHTML = `
                     <td><input type="text" value="${item.name}"></td>
                     <td><input type="text" value="${item.description}"></td>
@@ -213,28 +218,39 @@
                     </td>
                 `
             menuTableBody.appendChild(row)
+
+            // Event listener for updating menu item data
+            const updateButton = row.querySelector(`#update-button-${item._id}`)
             updateButton.addEventListener('click', async () => {
                 const updatedName = row.querySelector('td:nth-child(1) input').value
                 const updatedDescription = row.querySelector('td:nth-child(2) input').value
                 const updatedPrice = row.querySelector('td:nth-child(3) input').value
 
-                // update data
+                // Assembles menu item data to be updated
                 const updatedMenuItemData = {
                     name: updatedName,
                     description: updatedDescription,
                     price: updatedPrice
                 }
+
+                // Updates menu item data
                 await updateMenuItem(item._id, updatedMenuItemData)
+                // Used to refresh the page after updating
                 window.location.reload()
             })
-            //  deleting menu item
+
+            const deleteButton = row.querySelector(`#delete-button-${item._id}`)
+            // Event listener for deleting menu item
             deleteButton.addEventListener('click', async () => {
                 await deleteMenuItem(item._id)
                 window.location.reload()
             })
+      
             })
-            // last row
-            row.innerHTML = `
+
+            // Add input sections for the last row
+            const newRow = document.createElement('tr')
+            newRow.innerHTML = `
                 <td><input type="text" id="new-item-name"></td>
                 <td><input type="text" id="new-item-description"></td>
                 <td><input type="text" id="new-item-price"></td>
@@ -242,78 +258,94 @@
                     <button id="add_button">Add</button>
                 </td>
             `
-            menuTableBody.appendChild(row) 
+            menuTableBody.appendChild(newRow)
+    
+            // Attach event listener to the add button
+            const addButton = newRow.querySelector('#add_button')
             addButton.addEventListener('click', handleAddMenuItem)
         
         } catch (error) {
             console.error('Error fetching menu items:', error)
         }
     }
+    
     await displayAdminMenu()
     /////////////////////////////      EVENTS        //////////////////////////////
-async function displayAdminEvents() {
-    try {
-        const events = await getEvents()
-        const eventBody = document.querySelector('#event-table tbody')
-        const row = document.createElement('tr')
+    const displayAdminEvents = async () => {
+        try {
+            const events = await getEvents()
+            const eventsTableBody = document.querySelector('#event-table tbody')
 
-        events.sort((a, b) => new Date(a.dates) - new Date(b.dates))
-        events.forEach(event => {
-            const updateButton = row.querySelector(`#update-button-${event._id}`)
-            const deleteButton = row.querySelector(`#delete-button-${event._id}`)
-            const addButton = row.querySelector('#add_button')
-            row.innerHTML = `
-                <td><input type="text" value="${event.name}"></td>
-                <td><input type="text" value="${event.location}"></td>
-                <td><input type="text" value="${event.dates}"></td>
-                <td><input type="text" value="${event.hours}"></td>
+            events.sort((a, b) => new Date(a.dates) - new Date(b.dates))
+            
+            // Populates row with input fields containing event data
+            events.forEach(event => {
+                const row = document.createElement('tr')
+                row.innerHTML = `
+                    <td><input type="text" value="${event.name}"></td>
+                    <td><input type="text" value="${event.location}"></td>
+                    <td><input type="text" value="${event.dates}"></td>
+                    <td><input type="text" value="${event.hours}"></td>
+                    <td>
+                        <button id="update-button-${event._id}">Update</button>
+                        <button id="delete-button-${event._id}">Delete</button>
+                    </td>
+                `
+                eventsTableBody.appendChild(row)
+                
+                const updateButton = row.querySelector(`#update-button-${event._id}`)
+
+                // Event listener for updating event data
+                updateButton.addEventListener('click', async () => {
+                    const updatedName = row.querySelector('td:nth-child(1) input').value
+                    const updatedLocation = row.querySelector('td:nth-child(2) input').value
+                    const updatedDate = row.querySelector('td:nth-child(3) input').value
+                    const updatedHours = row.querySelector('td:nth-child(4) input').value
+    
+                    // Assembles event data to be updated
+                    const updatedEventData = {
+                        name: updatedName,
+                        location: updatedLocation,
+                        dates: updatedDate,
+                        hours: updatedHours
+                    }
+    
+                    // Updates event data
+                    await updateEvent(event._id, updatedEventData)
+                    // Used to refresh the page after updating
+                    window.location.reload()
+                })
+
+                const deleteButton = row.querySelector(`#delete-button-${event._id}`)
+                deleteButton.addEventListener('click', async () => {
+                    await deleteEvent(event._id)
+                    window.location.reload()
+                })
+            })
+    
+            // Add input sections for the last row
+            const newRow = document.createElement('tr')
+            newRow.innerHTML = `
+                <td><input type="text" id="new-event-name"></td>
+                <td><input type="text" id="new-event-location"></td>
+                <td><input type="date" id="new-event-date"></td>
+                <td><input type="text" id="new-event-hours"></td>
                 <td>
-                    <button id="update-button-${event._id}">Update</button>
-                    <button id="delete-button-${event._id}">Delete</button>
+                    <button id="add_button">Add</button>
                 </td>
             `
-            eventBody.appendChild(row)
-
-            updateButton.addEventListener('click', async () => {
-                const updateName = row.querySelector('td:nth-child(1) input').value
-                const updateLocation = row.querySelector('td:nth-child(2) input').value
-                const updateDate = row.querySelector('td:nth-child(3) input').value
-                const updateHours = row.querySelector('td:nth-child(4) input').value
-
-                const updatedEventData = {
-                    name: updateName,
-                    location: updateLocation,
-                    dates: updateDate,
-                    hours: updateHours
-                }
-
-                await updateEvent(event._id, updatedEventData)
-                window.location.reload()
-            })
-
-            deleteButton.addEventListener('click', async () => {
-                await deleteEvent(event._id)
-                window.location.reload()
-            })
-        })
-
-        row.innerHTML = `
-            <td><input type="text" id="new-event-name"></td>
-            <td><input type="text" id="new-event-location"></td>
-            <td><input type="date" id="new-event-date"></td>
-            <td><input type="text" id="new-event-hours"></td>
-            <td>
-                <button id="add_button">Add</button>
-            </td>
-        `
-        eventBody.appendChild(row)
-        addButton.addEventListener('click', handleAddEvent)
-
-    } catch (error) {
-        console.error('Error fetching events:', error)
+            eventsTableBody.appendChild(newRow)
+    
+            // Attach event listener to the add button
+            const addButton = newRow.querySelector('#add_button')
+            addButton.addEventListener('click', handleAddEvent)
+        } catch (error) {
+            console.error('Error fetching events:', error)
+        }
     }
-}
-await displayAdminEvents()
+
+    await displayAdminEvents()
+    
 
     /////////////////////////////      DYNAMIC SITE BEHAVIOR (optional)       //////////////////////////////
 

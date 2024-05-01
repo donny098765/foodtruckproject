@@ -6,12 +6,16 @@
     <title>DJA Food Truck</title>
     <script src="https://kit.fontawesome.com/d18ff80d2a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <script src="scripts/site.js" defer></script>
 </head>
 <body id="gradientbackground-home">
+
     <header>
+
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
@@ -20,20 +24,25 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+
         <div class="food-truck">
             <img src="img/foodtruck.jpg" alt="food truck" width="1463px" height="750px">
             <h1>DJA'S FOOD TRUCK</h1>
             <h2>Crave the Flavor, Savor the DJA's Vibe!</h2>
         </div>
+
     </header>
-    <div id="food-homepage">
-        <div><img src="img/cheeseburger-final.png" alt="cheeseburger" width="300px" height="200px"></div>
-        <div><img src="img/fries.png" alt="fries" width="300px" height="200px"></div>
-        <div><img src="img/tacos.png" alt="tacos" width="200px" height="200px"></div>
-        <div><img src="img/koreanburger.png" alt="koreanburger" width="300px" height="200px"></div>
-        <div><img src="img/fishtacos.png" alt="fishtacos" width="300px" height="200px"></div>
-    </div>
+
     <main id="home-section">
+
+        <div id="food-homepage">
+            <div><img src="img/cheeseburger-final.png" alt="cheeseburger" width="300px" height="200px"></div>
+            <div><img src="img/fries.png" alt="fries" width="300px" height="200px"></div>
+            <div><img src="img/tacos.png" alt="tacos" width="200px" height="200px"></div>
+            <div><img src="img/koreanburger.png" alt="koreanburger" width="300px" height="200px"></div>
+            <div><img src="img/fishtacos.png" alt="fishtacos" width="300px" height="200px"></div>
+        </div>
+
         <section>
             Welcome to DJA Food Truck, where we specialize in crafting mouthwatering burgers, flavorful tacos, and delicious sides that elevate your street
             food experience. Our vision is to deliver savory satisfaction on every plate and create moments of culinary delight that you'll remember long 
@@ -43,21 +52,33 @@
             DJA Food Truck, we're not just about serving food; we're about curating an unforgettable dining adventure that brings people together over
             the love of great food. Join us and savor the flavor at every stop! 
         </section>
+
+        <div class="container" id="events-container">
+            <h2>Upcoming Events</h2>
+            <!-- Events will be dynamically added here -->
+        </div>
+
         <hr><br>
+
         <section>
             <img src="img/guy.png" alt="guy" width="500px" height="400px">
         </section>
+
         <span>
             "Flavor town has a new stop @ Appleton WI, and it's DJA's Food Truck! This place is on fire with sizzling burgers, taco twists, and fries that'll make you wanna shout 'Flavortastic!' 
             Don't just take my word for it, come taste the awesomeness at DJA's!" <br>- Guy Fieri / Los Angles, CA
         </span>
+
         <section>
             <img src="img/sonny.jpeg" alt="sonny" width="500px" height="400px">
         </section>
+
         <span>
             "Sonny from the Best Food Review Show here, and let me tell ya, DJA's Food Truck is the real deal! We're talking flavor explosions that'll have your taste buds doing backflips. From mouthwatering burgers to taco creations that'll make you say 'Holy Guacamole!' And those fries? Crispy perfection! DJA's Food Truck is a must-stop for foodies everywhere. You don't wanna miss this food truck magic!"
         </span>
+
         <hr style="clear:both; display: block;">
+
         <article style="color: white; clear: both;"><br>
             <h3>CLICK ON OUR FOOD TRUCK TO FIND US!</h3>
             <div>
@@ -66,8 +87,10 @@
             <audio id="honk-sound" src="audio/mexican-taco-truck-horn-made-with-Voicemod.mp3" preload="auto"></audio>
             <audio src="img/truck.png" alt="food-truck moving" width="200px" height="200px">
         </article>
+
     </main>
     <div id="info"></div>
+
     <script>
         function handleClick() {
             playSound();
@@ -95,6 +118,7 @@
             info.style.display = 'block';
         }
     </script>
+
     <footer>
         <p><strong>
             Follow Us:
@@ -106,5 +130,6 @@
         </p>
         <p><small>&copy; 2024 DJA Foodtruck</small></p>
     </footer>
+
 </body>
 </html>
