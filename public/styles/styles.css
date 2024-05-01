@@ -4,6 +4,25 @@
     color: white;
 }
 
+.food-truck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.food-truck img{
+    filter: brightness(0.7);
+    display: block;
+    position: relative;
+}
+
+.food-truck > h1 {
+    font-size: 70px;
+    margin-top: -8em;
+    z-index: 3;
+}
+
 nav {
     position: sticky;
     top: 0;

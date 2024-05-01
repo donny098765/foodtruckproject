@@ -11,24 +11,7 @@ header {
     height: 100%;
 }
 
-.food-truck {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-} 
 
-.food-truck img{
-    filter: brightness(0.7);
-    display: block;
-    position: relative;
-}
-
-.food-truck > h1 {
-    font-size: 70px;
-    margin-top: -8em;
-    z-index: 3;
-}
 
 #food-homepage {
     display: flex;
