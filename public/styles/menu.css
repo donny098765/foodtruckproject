@@ -16,20 +16,24 @@
 
 #menu-body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    width: 60%;
     margin-top: 18em;
-    margin-right: 6em;
+    margin-right: 16em;
 }
 
 #menu-body > section{
-    margin-left: 5em;
-    width: 40%;
+    margin-left: 9em;
+    margin-top: 0em;
+    width: 60%;
 }
 
 .menu-fries{
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
+    clear: both;
 }
 
 section {
