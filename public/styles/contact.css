@@ -1,13 +1,5 @@
 /*CONTACT PAGE STYLES*/
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
 #gradientbackground-contact {
     background-image: linear-gradient(#653180, #eb6347, #009ab8);
     height: 1000px;
@@ -15,10 +7,19 @@ body {
     height: 100%;
 }
 
+.contact-imgs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 auto;
+}
+
 .contact-imgs > img {
     border: 2px solid white;
     display: inline;
     justify-content: center;
+    margin: 10px;
 }
 
 .contact-message {
