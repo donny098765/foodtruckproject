@@ -416,4 +416,19 @@
         }
     })
 
+    /////////////////////////////    UNDERLINE CURRENT PAGE LINK       //////////////////////////////
+    
+    // Get all nav links
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    // Loop through each link
+    navLinks.forEach(link => {
+    // Check if the current URL includes the link's href
+    if (window.location.href.includes(link.href)) {
+        // If it does, add the 'current-page' class to it
+        link.classList.add('current-page');
+    }
+
+    });
+
 })()

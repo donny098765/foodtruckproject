@@ -22,6 +22,9 @@
     margin-top: -8em;
     z-index: 3;
 }
+.current-page {
+    text-decoration: underline;
+}
 
 nav {
     position: sticky;

@@ -21,13 +21,24 @@
     margin: 0 auto;
     width: 60%;
     margin-top: 18em;
-    margin-right: 16em;
 }
 
-#menu-body > section{
-    margin-left: 9em;
-    margin-top: 0em;
-    width: 60%;
+.menu-item-card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff23;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    color: black;
+    font-family: "caveat", sans-serif;
+    font-size: 1.75em;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.menu-item-card:hover {
+    background-color: #ffffff62;
 }
 
 .menu-fries{

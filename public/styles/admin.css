@@ -63,3 +63,18 @@
 #add_button {
     width: 130px;
 }
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    background-color: #f8f8f8;
+    color: #000000;
+    font-size: 1.1em;
+}
